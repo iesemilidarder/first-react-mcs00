@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BootstrapTable from 'bootstrap-react-table';
+//import BootstrapTable from 'bootstrap-react-table';
 import MyTableComponent from './component/MyTableComponent';
 
 const title= "Lista de energumenos";
@@ -33,12 +33,18 @@ const data = [
         quantity: 12
     }
 ];
-
+function yuhu(){
+    alert('hiThere');
+}
 ReactDOM.render(
     <div className="container">
         <h1>{title}</h1>
-        <MyTableComponent/>
-        <ul>
+        <MyTableComponent
+            show={true}
+            title={"Toma peaso de tabla"}
+            data={myComplexData}
+            onClick={yuhu} />
+        {/*<ul>
             <li>yuhu</li>
             {myData.map((v) =>
                 <li>{v}</li>
@@ -59,8 +65,8 @@ ReactDOM.render(
                     </tr>
                 )}
             </tbody>
-        </table>
-        <BootstrapTable columns={columns} data={data}/>
+        </table>*/}
+        {/*<BootstrapTable columns={columns} data={data}/>*/}
     </div>
     ,document.getElementById('app')
 );
