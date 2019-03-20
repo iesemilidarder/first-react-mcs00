@@ -1,18 +1,67 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import DummyHeader from './component/DummyHeader';
 
-const myMenu = [{label: "Home", link: "#"}
-    , {label: "Contact", link: "#"}
-    , {label: "Shop", link: "#"}];
+const myWebData = [{
+    id: 1,
+    label: "Home",
+    link: "#",
+    title: "My home",
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam magnam repudiandae tempora tempore temporibus veniam veritatis? Alias aut beatae fugit."
+}, {
+    id: 2,
+    label: "Contact", link: "#",
+    title: "My Contact",
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam magnam repudiandae tempora tempore temporibus veniam veritatis? Alias aut beatae fugit."
+}, {
+    id: 3,
+    label: "Shop", link: "#",
+    title: "My shop",
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam magnam repudiandae tempora tempore temporibus veniam veritatis? Alias aut beatae fugit."
+}];
 
-ReactDOM.render(
-    <React.Fragment>
-        <DummyHeader data={myMenu}/>
-        <main className={"row"}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid enim fuga in laboriosam molestiae
-            necessitatibus quo. Autem, distinctio, voluptas.
-        </main>
-        <footer className={"row"}>Hola mundo</footer>
-    </React.Fragment>
-    , document.getElementById('app'));
+class MyWebApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {currentId: 1};
+        this._changeSelection = this._changeSelection.bind(this);
+        this._getElement = this._getElement.bind(this);
+    }
+
+    _changeSelection(id) {
+        if (id !== undefined) {
+            this.setState({currentId: id});
+        }
+    }
+
+    _getElement(i) {
+        if (i !== undefined) {
+            for (let q=0;q<myWebData.length;q++){
+                if (myWebData[q].id === i) {
+                    return myWebData[q];
+                }
+            }/*
+            myWebData.map(q => {
+
+            })*/
+        }
+        return {title: 404, content: "Mierder!"};
+    }
+
+    render() {
+        const content = this._getElement(this.state.currentId);
+        console.log(this.state.currentId);
+        console.log(content);
+        return <React.Fragment>
+            <DummyHeader data={myWebData}/>
+            <main className={"row"}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid enim fuga in laboriosam molestiae
+                necessitatibus quo. Autem, distinctio, voluptas.
+            </main>
+            <footer className={"row"}>Hola mundo</footer>
+        </React.Fragment>;
+    }
+}
+
+
+ReactDOM.render(<MyWebApp/>, document.getElementById('app'));
