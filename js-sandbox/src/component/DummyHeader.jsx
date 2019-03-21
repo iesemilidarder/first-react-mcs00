@@ -16,7 +16,8 @@ class DummyHeader extends Component {
             </h1>
             <div className="col-md-12">
                 {myData.map((o) => {
-                        return <a key={o.label} href={o.link}>{o.label}</a>
+                        return <a key={o.label} href={o.link}
+                        onClick={()=>this.props.onclick(o.id)}>{o.label}</a>
                     }
                 )}
             </div>
@@ -26,5 +27,6 @@ class DummyHeader extends Component {
 
 DummyHeader.propTypes = {
     data: PropTypes.array.isRequired,
+    onclick: PropTypes.func.isRequired
 };
 export default DummyHeader;

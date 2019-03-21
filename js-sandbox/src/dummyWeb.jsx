@@ -24,8 +24,9 @@ class MyWebApp extends Component {
     constructor(props) {
         super(props);
         this.state = {currentId: 1};
+        //binding!!! WTF
         this._changeSelection = this._changeSelection.bind(this);
-        this._getElement = this._getElement.bind(this);
+        //this._getElement = this._getElement.bind(this);
     }
 
     _changeSelection(id) {
@@ -36,27 +37,26 @@ class MyWebApp extends Component {
 
     _getElement(i) {
         if (i !== undefined) {
-            for (let q=0;q<myWebData.length;q++){
+            for (let q = 0; q < myWebData.length; q++) {
                 if (myWebData[q].id === i) {
                     return myWebData[q];
                 }
-            }/*
-            myWebData.map(q => {
-
-            })*/
+            }
+            /* NO: myWebData.map(q => {})*/
         }
         return {title: 404, content: "Mierder!"};
     }
 
     render() {
         const content = this._getElement(this.state.currentId);
-        console.log(this.state.currentId);
+        console.log("Seleccionado:" + this.state.currentId);
         console.log(content);
         return <React.Fragment>
-            <DummyHeader data={myWebData}/>
+            <DummyHeader data={myWebData}
+                         onclick={this._changeSelection}/>
             <main className={"row"}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid enim fuga in laboriosam molestiae
-                necessitatibus quo. Autem, distinctio, voluptas.
+                <h1>{content.title}</h1>
+                <p>{content.content}</p>
             </main>
             <footer className={"row"}>Hola mundo</footer>
         </React.Fragment>;

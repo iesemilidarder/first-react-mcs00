@@ -14,7 +14,7 @@
       "@babel/preset-react"
     ]
   },
-  "author": "",
+  "author": "Alberto Soto Fernandez",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.3.1",
