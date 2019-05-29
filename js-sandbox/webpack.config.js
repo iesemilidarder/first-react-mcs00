@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/dummyWeb.jsx',
+    entry: './src/index.jsx',
     module: {
         rules:[
             {
