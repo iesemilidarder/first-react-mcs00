@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import DummyHeader from './component/DummyHeader';
+//testing
+
 
 const myWebData = [{
     id: 1,
@@ -24,9 +26,7 @@ class MyWebApp extends Component {
     constructor(props) {
         super(props);
         this.state = {currentId: 1};
-        //binding!!! WTF
         this._changeSelection = this._changeSelection.bind(this);
-        //this._getElement = this._getElement.bind(this);
     }
 
     _changeSelection(id) {

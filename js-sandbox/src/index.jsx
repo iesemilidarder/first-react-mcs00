@@ -26,7 +26,7 @@ const myData = [{
         label: 'Athletico de Madrid',
         link: '#',
         title: 'Athletico de Madrid',
-        text: 'Cosa texto 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque doloribus est minus odio ratione rem voluptas? At atque autem beatae corporis delectus error.'
+        text: 'El Club Atlético de Madrid es un club de fútbol (y antiguo club polideportivo) español de la ciudad de Madrid, fundado el 26 de abril de 1903. Su primer equipo masculino milita en la Primera División de España y disputa sus partidos como local desde la temporada 2017/18, en el Estadio Metropolitano, con capacidad de 69 829 espectadores.'
     }];
 const sideInfo = [{label: 'FCBarcelona'}, {label: 'RealMadrid'}, {label: 'Athletico'}];
 
@@ -51,7 +51,6 @@ class Article extends Component {
                 }
             }
         }
-        return {title: 404, text: "Not found"};
     }
 
     render() {
